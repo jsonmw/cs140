@@ -1,0 +1,130 @@
+// Jason Wild
+// 9/23/21
+// CS 141
+// Lab 1
+
+// This program will produce the output of a cumulative song, with no repetition of print statements.
+// The idea is to make it so you could easily change the creatures, their order, or verse wording with
+// minimal code refactoring (using just printlns).
+
+public class songLab {
+
+   public static void main(String[] args) {
+
+   flyVerse();
+   spiderVerse();
+   birdVerse();
+   catVerse();
+   dogVerse();
+   bearVerse();   
+
+   }
+   
+   // The following methods build the verses by printing the unique verse lines 
+   // and calling all previous cumulative verse transitions.
+   
+   public static void flyVerse() {
+   
+      System.out.println("There was an old woman who swallowed a fly.");
+      iDontKnowWhy();
+   
+   }
+   
+   public static void spiderVerse() {
+   
+      System.out.println("There was an old woman who swallowed a spider,");
+      System.out.println("That wriggled and iggled and jiggled inside her.");
+      spiderToFly();
+      iDontKnowWhy();
+      
+   }
+   
+   public static void birdVerse() {
+     
+     System.out.println("There was an old woman who swallowed a bird,");
+     System.out.println("How absurd to swallow a bird.");
+     birdToSpider();
+     spiderToFly();
+     iDontKnowWhy();
+
+   }
+   
+   public static void catVerse() {
+     
+     System.out.println("There was an old woman who swallowed a cat,");
+     System.out.println("Imagine that to swallow a cat.");
+     catToBird();
+     birdToSpider();
+     spiderToFly();
+     iDontKnowWhy();
+
+   }
+   
+   public static void dogVerse() {
+     
+     System.out.println("There was an old woman who swallowed a dog,");
+     System.out.println("What a hog to swallow a dog.");
+     dogToCat();
+     catToBird();
+     birdToSpider();
+     spiderToFly();
+     iDontKnowWhy();
+
+   }
+   
+   public static void bearVerse() {
+     
+     System.out.println("There was an old woman who swallowed a bear,");
+     System.out.println("I'm not even sure how she fit it in there.");
+     bearToDog();
+     dogToCat();
+     catToBird();
+     birdToSpider();
+     spiderToFly();
+     iDontKnowWhy();
+
+   }
+   
+   // This method prints the repeated closing line, as well as produces the space after.
+   
+   public static void iDontKnowWhy() {
+      
+      System.out.println("I don't know why she swallowed that fly,");
+      System.out.println("Perhaps she'll die.");
+      System.out.println();
+      
+   }
+   
+   // The following methods define the cumulative verse transition print statements.
+   
+   public static void spiderToFly() {
+   
+      System.out.println("She swallowed the spider to catch the fly,");
+   
+   }
+   
+   public static void birdToSpider() {
+   
+      System.out.println("She swallowed the bird to catch the spider,");
+   
+   }
+   
+   public static void catToBird() {
+   
+      System.out.println("She swallowed the cat to catch the bird,");
+   
+   }
+   
+   public static void dogToCat() {
+   
+      System.out.println("She swallowed the dog to catch the cat,");
+   
+   }
+   
+   public static void bearToDog() {
+   
+      System.out.println("She swallowed the bear to catch the dog,");
+   
+   }
+
+}
