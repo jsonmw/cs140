@@ -1,6 +1,11 @@
+// William Greiner & Jason Wild
+// 10/6/21
+// CS 141
+// Lab #2 part 2
+
 public class RocketShip {
 
-// This program will utilize nested for loops to produce rocket ships of any size. 
+// This program will produce rocket ships of any size. 
 // It does not include launch functionality.
 
     public static final int SIZE = 3;
