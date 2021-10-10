@@ -1,0 +1,40 @@
+import java.awt.*;
+
+public class Doodle {
+
+//    This program draws a weirdly surprised smiley face.
+
+    public static void main(String[]args){
+        DrawingPanel panel = new DrawingPanel(300, 300);
+        Graphics doodle = panel.getGraphics();
+        panel.setBackground(Color.YELLOW);
+
+        drawEye(doodle,45,25,Color.CYAN);
+        drawEye(doodle, 205, 25, Color.CYAN);
+        drawMouth(doodle,110,175, Color.PINK);
+    }
+
+//    This method makes the eyes and determines the position/iris color based on parameter.
+    
+    public static void drawEye(Graphics g, int x, int y, Color c) {
+        g.setColor(Color.WHITE);
+        g.fillOval(x,y,50,50);
+        g.setColor(Color.BLACK);
+        g.drawOval(x,y,50,50);
+        g.setColor(c);
+        g.fillOval(x+13,y+13,25,25);
+        g.setColor(Color.BLACK);
+        g.drawOval(x+13,y+13,25,25);
+        g.fillOval(x+19, y+19, 13, 13);
+    }
+
+//    This method determines the position and color of the mouth.
+
+    public static void drawMouth(Graphics g, int x, int y, Color c) {
+
+        g.setColor(c);
+        g.fillOval(x, y, 80, 50);
+        g.setColor(Color.BLACK);
+        g.drawOval(x, y, 80, 50);
+    }
+}
