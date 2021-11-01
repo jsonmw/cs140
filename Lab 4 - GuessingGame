@@ -55,11 +55,11 @@ public class GuessingGame {
         System.out.println(
 
                 "This program allows you to play a guessing game.\n" +
-                        "I will think of a number between 1 and\n" +
-                        MAX_NUM + " and will allow you to guess until\n" +
-                        "you get it. For each guess, I will tell you\n" +
-                        "whether the right answer is higher or lower\n" +
-                        "than your guess."
+                "I will think of a number between 1 and\n" +
+                MAX_NUM + " and will allow you to guess until\n" +
+                "you get it. For each guess, I will tell you\n" +
+                "whether the right answer is higher or lower\n" +
+                "than your guess."
         );
     }
 
