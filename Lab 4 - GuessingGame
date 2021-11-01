@@ -1,0 +1,109 @@
+// Jason Wild
+// 10/31/2021
+// CS 141
+// LAB 4 - Guessing Game
+import java.util.*;
+public class GuessingGame {
+
+//    This program allows a user to guess a randomly generated number. It will track the number
+//    of total games, total guesses, guesses per game, and the game with the fewest guesses.
+
+    public static final int MAXNUM = 10;
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Random rando = new Random();
+
+        int totalGames = 0;
+        int totalGuess = 0;
+        int bestGame = 0;
+        double guessAvg = 0.0;
+
+        intro();
+
+        boolean exec = true;
+
+        while(exec) {
+            int guesses = newGame(rando, input);
+            totalGames++;
+            if(guesses < bestGame) {
+                bestGame = guesses;
+            }
+            totalGuess += guesses;
+            guessAvg = (double) totalGuess / totalGames;
+            
+            System.out.println();
+            System.out.println("Do you want to play again?");
+            String ans = input.next().toUpperCase();
+            if(ans.charAt(0) == 'N') {
+                exec = false;
+            }
+        }
+        System.out.println();
+        showResults(totalGames,totalGuess, guessAvg, bestGame);
+    }
+
+    public static void intro() {
+        System.out.println(
+
+                "This program allows you to play a guessing game.\n" +
+                "I will think of a number between 1 and\n" +
+                MAXNUM + " and will allow you to guess until\n" +
+                "you get it. For each guess, I will tell you\n" +
+                "whether the right answer is higher or lower\n" +
+                "than your guess.\n"
+        );
+    }
+
+    public static int newGame(Random rando, Scanner input) {
+    
+        System.out.println("I'm thinking of a number between 1 and " + MAXNUM + "...");
+        int answer = rando.nextInt(MAXNUM) + 1;
+        int guessNum = 0;
+        int guess = 0;
+        boolean correct = false;
+
+        while(!correct) {   
+         
+         System.out.print("Your guess?");
+         guess = input.nextInt();
+         
+         if(guess == answer && guessNum == 0) {
+    
+            System.out.println("You got it right in one guess");
+            correct = true;
+            guessNum++;
+            
+         } else if (guess < answer) {
+           
+            System.out.println("It's higher.");
+            guessNum++;
+                
+         } else if (guess > answer) {
+            
+            System.out.println("It's lower.");
+            guessNum++;
+                
+         } else if ( guess == answer) {
+            
+           guessNum++;
+           System.out.println("You got it right in " + guessNum + " guesses");
+           correct = true;
+       
+         }
+         
+      }
+               return guessNum;
+
+   }
+
+    public static void showResults(int totalGames, int totalGuess, double guessAvg, int bestGame) {
+
+        System.out.println("Overall results:");
+        System.out.println("    total games = " + totalGames);
+        System.out.println("    total guesses = " + totalGuess);
+        System.out.printf(("    guesses/game = %.1f \n"), guessAvg);
+        System.out.println("    best game = " + bestGame);
+
+    }
+}
