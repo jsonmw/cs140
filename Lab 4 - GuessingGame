@@ -2,15 +2,17 @@
 // 10/31/2021
 // CS 141
 // LAB 4 - Guessing Game
+
 import java.util.*;
 public class GuessingGame {
 
 //    This program allows a user to guess a randomly generated number. It will track the number
 //    of total games, total guesses, guesses per game, and the game with the fewest guesses.
 
-    public static final int MAX_NUM = 10;
+    public static final int MAX_NUM = 100;
 
     public static void main(String[] args) {
+    
         Scanner input = new Scanner(System.in);
         Random rando = new Random();
 
@@ -23,6 +25,8 @@ public class GuessingGame {
         boolean exec = true;
 
         while(exec) {
+        
+            System.out.println();
             int guesses = newGame(rando, input);
             
             if(guesses < bestGame) {
@@ -31,16 +35,19 @@ public class GuessingGame {
             totalGames++;
             totalGuess += guesses;
 
-            System.out.println();
-            System.out.println("Do you want to play again?");
+            System.out.print("Do you want to play again? ");
             String ans = input.next().toUpperCase();
             if(ans.charAt(0) == 'N') {
                 exec = false;
             }
         }
-
+        
+        System.out.println();
         showResults(totalGames,totalGuess, bestGame);
+        
     }
+
+//    Prints the opening dialogue and explains the rules.
 
     public static void intro() {
         System.out.println(
@@ -50,9 +57,14 @@ public class GuessingGame {
                  MAX_NUM + " and will allow you to guess until\n" +
                 "you get it. For each guess, I will tell you\n" +
                 "whether the right answer is higher or lower\n" +
-                "than your guess.\n"
+                "than your guess."
         );
     }
+
+//    Creates a new game. Generates a random number, then prompts the player to input 
+//    a guess. It validates that guess and gives them hints if it is incorrect, tracking 
+//    the number of guesses for this game. It correct, it notifies the player the number
+//    of guesses to find the correct answer and outputs this number.
 
     public static int newGame(Random rando, Scanner input) {
     
@@ -64,7 +76,7 @@ public class GuessingGame {
 
         while(!correct) {   
          
-            System.out.print("Your guess?");
+            System.out.print("Your guess? ");
             guess = input.nextInt();
 
             if(guess == answer && guessNum == 0) {
@@ -90,11 +102,14 @@ public class GuessingGame {
                 correct = true;
 
             }
-         
         }
+        
         return guessNum;
 
    }
+   
+//    Takes the total player stastics them and creates strings that are displayed on the
+//    console. Also generates the average guesses per game.  
 
     public static void showResults(int totalGames, int totalGuess, int bestGame) {
 
