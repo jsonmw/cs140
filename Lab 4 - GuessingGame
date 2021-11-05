@@ -9,7 +9,7 @@ public class GuessingGame {
 //    This program allows a user to guess a randomly generated number. It will track the number
 //    of total games, total guesses, guesses per game, and the game with the fewest guesses.
 
-    public static final int MAX_NUM = 2;
+    public static final int MAX_NUM = 100;
 
     public static void main(String[] args) {
 
@@ -40,6 +40,8 @@ public class GuessingGame {
             if(ans.charAt(0) == 'N') {
                 exec = false;
 
+            } else if(ans.charAt(0) == 'Y') {
+                exec = true;
             }
         }
 
@@ -57,7 +59,7 @@ public class GuessingGame {
                 "This program allows you to play a guessing game.\n" +
                 "I will think of a number between 1 and\n" +
                 MAX_NUM + " and will allow you to guess until\n" +
-                "you get it. For each guess, I will tell you\n" +
+                "you get it.  For each guess, I will tell you\n" +
                 "whether the right answer is higher or lower\n" +
                 "than your guess."
         );
@@ -115,10 +117,10 @@ public class GuessingGame {
     public static void showResults(int totalGames, int totalGuess, int bestGame) {
 
         System.out.println("Overall results:");
-        System.out.println("\ttotal games = " + totalGames);
-        System.out.println("\ttotal guesses = " + totalGuess);
-        System.out.printf(("\tguesses/game = %.1f \n"), ((double) totalGuess / totalGames));
-        System.out.println("\tbest game = " + bestGame);
+        System.out.println("    total games   = " + totalGames);
+        System.out.println("    total guesses = " + totalGuess);
+        System.out.printf(("    guesses/game  = %.1f\n"), ((double) totalGuess / totalGames));
+        System.out.println("    best game     = " + bestGame);
 
     }
 }
