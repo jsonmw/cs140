@@ -67,7 +67,7 @@ public class MadLibs{
       }
 
       return new Scanner(input);
-      
+
    }
 
 //   Asks the user for the target output file name. Builds the MadLib line-by-line
@@ -82,14 +82,16 @@ public class MadLibs{
       System.out.println();
 
       while(input.hasNextLine()) {
+
          String line = input.nextLine();
          Scanner text = new Scanner(line);
          output.println(handleLine(text, console));
+
       }
 
       System.out.println("Your mad-lib has been created!");
       System.out.println();
-      
+
    }
 
 //   Takes the Scanner holding the template line and accepts the user's input
@@ -109,29 +111,28 @@ public class MadLibs{
             String swaparoo = word.substring(1, word.indexOf(">"));
             swaparoo = swaparoo.replace('-',' ');
 
-            char test = swaparoo.toLowerCase().charAt(0);
-            if(test == 'a' || test == 'e' || test == 'i' ||
-               test == 'o' || test == 'u') {
+            char first = swaparoo.toLowerCase().charAt(0);
+            if(first == 'a' || first == 'e' || first == 'i' ||
+               first == 'o' || first == 'u') {
 
                System.out.print("Please type an " + swaparoo + ": ");
-               word = console.nextLine();
 
             } else {
 
                System.out.print("Please type a " + swaparoo + ": ");
-               word = console.nextLine();
 
             }
-            newLine += (word + " ");
 
-         } else {
+            word = console.nextLine();
 
-            newLine += (word + " ");
          }
+
+         newLine += (word + " ");
+
       }
 
       return newLine;
-      
+
    }
 
 //   Reads the selected file and outputs the text onto the console.
@@ -139,10 +140,12 @@ public class MadLibs{
    public static void viewMadLib(Scanner input) {
 
       while(input.hasNextLine()) {
+
          System.out.println(input.nextLine());
+
       }
 
       System.out.println();
-      
+
    }
 }
