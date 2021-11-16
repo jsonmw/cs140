@@ -339,7 +339,7 @@ public class MyCalendar {
     }
 
 //       This prints the month/day given to it at the end of each calendar. If the user is navigating to
-//       the next or previous month, only the month is displayed, to avoid errors such as "January 31st".
+//       the next or previous month, only the month is displayed, to avoid errors such as "February 31st".
 
     public static void displayDate(int month, int day) {
         System.out.println("Month: " + month);
