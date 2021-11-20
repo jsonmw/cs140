@@ -40,6 +40,10 @@ public class DNA {
         }
     }
 
+//    Takes the Scanner containing the file and reads the next sequence, this initializes
+//    and holds the arrays to store the data of each sequence. Calls the appropriate methods
+//    for each array, passing them and the PrintStream object it is given to an output method.
+
     public static void analyzeSequence(Scanner input, PrintStream output) {
         String[] current = readFile(input);
         String name = current[0];
@@ -73,7 +77,7 @@ public class DNA {
         return pair;
     }
 
-//    Given a sequence, this counts the number of each nucleotide appears in the given sequence,
+//    Given a sequence, this counts the number of each nucleotide appearing in the given sequence,
 //    and increments elements of a counting array that tracks each nucleotide. It returns
 //    the number of junk molecules found.
 
@@ -98,7 +102,7 @@ public class DNA {
     }
 
 //    Takes the number of each nucleotide and junk, calculates and stores the
-//    total mass of each, then returns the sum.
+//    total mass of each, then returns the sum mass of all nucleotides/junk.
 
     public static double getMass (double[] mass, int[] counts, int junk) {
         for(int i = 0; i < mass.length; i++) {
