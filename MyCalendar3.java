@@ -60,7 +60,7 @@ public class MyCalendar {
             displayOptions();
             String input = console.nextLine().toLowerCase();
             
-//            Allows viewing specific date.
+                // Allows viewing the calendar of a specific date.
 
             if (input.equals("e")) {
                 System.out.print("Which date would you like to look at? ");
@@ -76,18 +76,18 @@ public class MyCalendar {
                         date = console.nextLine();
                     }
                 }
-
-//            Calls Calendar object to view today's date
                 
+                // Calls the Calendar object to view today's date.
+
             } else if (input.equals("t")) {
                 workingDate[0] = calendar.get(Calendar.MONTH) + 1;
                 workingDate[1] = calendar.get(Calendar.DATE);
 
                 displayMonth(workingDate, buildMonth(workingDate[0], workingDate[1], eventCal));
                 currentMonth = workingDate[0];
-
-//            Iterates forward through calendar by 1 month  
                 
+                // Iterates forward through calendar by 1 month.
+
             } else if (input.equals("n")) {
                 if (currentMonth == -1) {
                     System.out.println("You must have a calendar displayed.");
@@ -101,8 +101,8 @@ public class MyCalendar {
                     currentMonth = workingDate[0];
                 }
 
-//            Iterates backward through calendar by 1 month.
-                
+                // Iterates backward through calendar by 1 month.
+
             } else if (input.equals("p")) {
                 if (currentMonth == -1) {
                     System.out.println("You must have a calendar displayed. ");
@@ -116,9 +116,9 @@ public class MyCalendar {
                             workingDate[1], eventCal));
                     currentMonth = workingDate[0];
                 }
-                
-//            Creates new event  
-                
+
+                // Creates new event
+
             } else if (input.equals("ev")) {
                 System.out.print("Please input new event ('MM/DD <Event Name>') ");
                 String event = console.nextLine();
@@ -135,8 +135,8 @@ public class MyCalendar {
                     }
                 }
 
-//             Enters additional event utility menu
-                
+                // Enters additional event utility menu
+
             } else if (input.equals("ae")) {
                 eventMenu(eventCal, workingDate, console);
 
@@ -169,12 +169,11 @@ public class MyCalendar {
                         fpMonth = console.nextLine();
                     }
                 }
-                
-//             Exits program
-                
+
+                // Exits program
+
             }  else if (input.equals("q")) {
                 exec = false;
-
             } else {
                 System.out.println("Please enter a valid command.");
             }
@@ -191,14 +190,14 @@ public class MyCalendar {
         while(eventExec) {
             displayEventOptions();
             String input = console.nextLine();
-            
-//            Views current event calendar
+
+            // Views current event calendar
 
             if (input.equals("v")) {
                 displayEvents(eventCal);
-                
-//            Reads selected event calendar file into memory
-                
+
+            // Reads selected event calendar file into memory
+
             } else if (input.equals("l")) {
                 System.out.print("Which event file do you wish to load? ");
                 String file = console.nextLine();
@@ -222,8 +221,8 @@ public class MyCalendar {
                     displayEvents(eventCal);
                 }
 
-//              Saves current event calendar to file
-                
+            // Saves current event calendar to file
+
             } else if (input.equals("s")) {
                 System.out.print("Please enter the desired file name for the event calendar, or press enter to save as default. ");
                 String fileName = console.nextLine();
@@ -242,9 +241,9 @@ public class MyCalendar {
                     System.out.println(fileName + " has been saved!");
                     System.out.println();
                 }
-                
-//              Exits additional event utility menu
-                
+
+            // Exits additional event utility menu
+
             } else if (input.equals("q")) {
                 eventExec = false;
 
@@ -266,8 +265,8 @@ public class MyCalendar {
     }
 
 //    Prints the given calendarMonth to the desired file. *NOTE* intentionally does not call
-//    displayDate as that looked really redundant in print form, with a selected day being
-//    irrelevant in printed form.
+//    displayDate as that looked really redundant in print form, with specific day being
+//    irrelevant there.
 
     public static void printMonth(String[] calendarMonth, Scanner console)
              throws FileNotFoundException {
@@ -278,8 +277,9 @@ public class MyCalendar {
             output.println(calendarMonth[i]);
         }
     }
-//    Displays calendar to the console from user input month and day, calling the appropriate
-//    methods to assemble the pieces in the correct format.
+//    Builds calendar output from the user input month and day, calling the appropriate
+//    methods to assemble the pieces in the correct format, and returns it to be printed
+//    to file or to console.
 
     public static String[] buildMonth(int month, int select, String[][] eventCal) {
         int length = getLength(month);
@@ -305,7 +305,7 @@ public class MyCalendar {
             row++;
         }
         drawLine();
-
+        
         return calendarMonth;
     }
 
